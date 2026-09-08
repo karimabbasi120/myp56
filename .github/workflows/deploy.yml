@@ -29,7 +29,14 @@ jobs:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      # Using `npm install` rather than `npm ci`: some Rust-based build tools
+      # (lightningcss/Tailwind v4's engine) ship platform-specific optional
+      # peer dependencies (@napi-rs/wasm-runtime -> @emnapi/*) that npm
+      # resolves differently depending on the installing OS/arch, so a lock
+      # file written on macOS can look "out of sync" to npm ci on Linux even
+      # though nothing is actually wrong. `npm install` just resolves for the
+      # current platform instead of demanding an exact pre-listed match.
+      - run: npm install
       - run: npm run build
 
       - uses: actions/configure-pages@v5
