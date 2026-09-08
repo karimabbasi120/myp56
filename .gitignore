@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+ios/App/Pods
+# Duplicate copy of the web build that `cap sync` writes into the iOS
+# project - it's generated output, not source, same as dist/ above.
+ios/App/App/public
+*.log
+.DS_Store
+xcuserdata/
+DerivedData/
+*.xcuserdatad

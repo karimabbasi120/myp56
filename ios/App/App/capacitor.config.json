@@ -1,0 +1,12 @@
+{
+	"appId": "com.mypcompanion.app",
+	"appName": "MYP 56",
+	"webDir": "dist",
+	"ios": {
+		"contentInset": "never"
+	},
+	"packageClassList": [
+		"FilesystemPlugin",
+		"SharePlugin"
+	]
+}
